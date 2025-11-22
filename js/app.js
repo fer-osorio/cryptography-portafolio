@@ -6,7 +6,7 @@
  * 1. No external tracking scripts
  * 2. Input validation (when handling user data)
  * 3. Content Security Policy compliance
- * 4. Safe document object model (DOM) manipulation (prevent XSS)
+ * 4. Safe DOM manipulation (prevent XSS)
  * 5. Secure navigation handling
  *
  * JAVASCRIPT ORGANIZATION:
@@ -62,16 +62,41 @@ function setupNavigation() {
 /**
  * navigateToTool - Safely navigate to a tool page
  *
- * SECURITY NOTE: We validate the filename to prevent path traversal attacks
- * Example of bad: navigateToTool('../../admin.html') - this would fail
+ * SECURITY NOTES:
+ * 1. We validate the path to prevent path traversal attacks
+ * 2. Reject: '../../admin.html' (goes up directories)
+ * 3. Reject: 'pages/../../../admin.html' (sneaky traversal)
+ * 4. Allow: 'pages/rsa-tool.html' (normal subdirectory)
  *
- * @param {string} toolPath - The path to the tool (e.g., 'rsa-tool.html')
+ * HOW IT WORKS:
+ * - Only allow forward slashes (/) for directory separation, no backslashes
+ * - Each path segment must be alphanumeric with hyphens (no dots like '..')
+ * - Must end with .html
+ * - Pattern: 'subdirs/filename.html' or just 'filename.html'
+ *
+ * @param {string} toolPath - The path to the tool (e.g., 'pages/rsa-tool.html')
  */
 function navigateToTool(toolPath) {
     // Security: Validate that the path is safe
-    // Only allow alphanumeric characters, hyphens, and .html extension
-    const validPathRegex = /^[a-zA-Z0-9\-]+\.html$/;
+    // Allows: pages/rsa-tool.html, tools/crypto/hash.html, rsa-tool.html
+    // Rejects: ../../admin.html, pages/../admin.html, pages\tool.html
+    const validPathRegex = /^[a-zA-Z0-9\-\/]+\.html$/;
 
+    // Additional check: Reject attempts to go up directories (..)
+    if (toolPath.includes('..')) {
+        console.error('Invalid tool path - path traversal detected:', toolPath);
+        alert('Invalid tool path. Path traversal not allowed.');
+        return;
+    }
+
+    // Additional check: Reject backslashes (Windows path separator - potential exploit)
+    if (toolPath.includes('\\')) {
+        console.error('Invalid tool path - backslash not allowed:', toolPath);
+        alert('Invalid tool path. Invalid path format.');
+        return;
+    }
+
+    // Main validation: Check format
     if (!validPathRegex.test(toolPath)) {
         console.error('Invalid tool path:', toolPath);
         alert('Invalid tool path. Security check failed.');
