@@ -8,4 +8,6 @@ SEMANTIC HTML: Using meaningful tags for accessibility and search engine optimiz
 Cryptographic operations should only run in secure contexts?
 
 What is a server and why nodejs?
+What is the relation between HTML and LaTeX?
+What is a Browser?
 
