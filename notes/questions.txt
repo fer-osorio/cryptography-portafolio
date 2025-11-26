@@ -12,4 +12,8 @@ What is the relation between HTML and LaTeX?
 What is a Browser?
 Which are the common ways of saving and transmit keys in the industry?
 What is MVC (Model-View-Controller)?
+What is a Virtual Machine?
+What is a SandBox?
+What are MITM attacks?
+What are certificate chains?
 
