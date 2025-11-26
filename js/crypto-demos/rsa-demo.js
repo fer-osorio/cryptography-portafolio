@@ -171,55 +171,55 @@ function displayKeys(keys, duration) {
 
     resultsDiv.innerHTML = `
     <div class="key-display">
-    <h3>✓ RSA Keys Generated (${duration}s)</h3>
+        <h3>✓ RSA Keys Generated (${duration}s)</h3>
 
-    <div class="key-section">
-    <h4>🔓 Public Key (shareable)</h4>
-    <div class="key-value">
-    <label>Modulus (n):</label>
-    <code id="display-n">${n.toString()}</code>
-    <button class="copy-btn" data-copy="display-n">Copy</button>
-    </div>
-    <div class="key-value">
-    <label>Public Exponent (e):</label>
-    <code id="display-e">${e.toString()}</code>
-    <button class="copy-btn" data-copy="display-e">Copy</button>
-    </div>
-    <p class="key-info">Bit length: ${MathUtils.bitLength(n)} bits</p>
-    </div>
+        <div class="key-section">
+            <h4>🔓 Public Key (shareable)</h4>
+            <div class="key-value">
+                <label>Modulus (n):</label>
+                <code id="display-n">${n.toString()}</code>
+                <button class="copy-btn" data-copy="display-n">Copy</button>
+            </div>
+            <div class="key-value">
+                <label>Public Exponent (e):</label>
+                <code id="display-e">${e.toString()}</code>
+                <button class="copy-btn" data-copy="display-e">Copy</button>
+            </div>
+            <p class="key-info">Bit length: ${MathUtils.bitLength(n)} bits</p>
+        </div>
 
-    <div class="key-section private-key">
-    <h4>🔐 Private Key (keep secret!)</h4>
-    <div class="key-value">
-    <label>Private Exponent (d):</label>
-    <code id="display-d">${d.toString()}</code>
-    <button class="copy-btn" data-copy="display-d">Copy</button>
-    </div>
-    <p class="security-warning">
-    ⚠️ Never share your private key! In production systems, this would be stored in a Hardware Security Module (HSM).
-    </p>
-    </div>
+        <div class="key-section private-key">
+            <h4>🔐 Private Key (keep secret!)</h4>
+            <div class="key-value">
+                <label>Private Exponent (d):</label>
+                <code id="display-d">${d.toString()}</code>
+                <button class="copy-btn" data-copy="display-d">Copy</button>
+            </div>
+            <p class="security-warning">
+            ⚠️ Never share your private key! In production systems, this would be stored in a Hardware Security Module (HSM).
+            </p>
+        </div>
 
-    <div class="key-section educational">
-    <h4>📚 Educational Details (not normally shown)</h4>
-    <div class="key-value">
-    <label>Prime p:</label>
-    <code id="display-p">${p.toString()}</code>
-    </div>
-    <div class="key-value">
-    <label>Prime q:</label>
-    <code id="display-q">${q.toString()}</code>
-    </div>
-    <div class="key-value">
-    <label>φ(n) = (p-1)(q-1):</label>
-    <code id="display-phi">${phi.toString()}</code>
-    </div>
-    <div class="math-explanation">
-    <p><strong>Key Relationship:</strong></p>
-    <p>e × d ≡ 1 (mod φ(n))</p>
-    <p>Verification: (e × d) mod φ(n) = ${((e * d) % phi).toString()}</p>
-    </div>
-    </div>
+        <div class="key-section educational">
+            <h4>📚 Educational Details (not normally shown)</h4>
+            <div class="key-value">
+                <label>Prime p:</label>
+                <code id="display-p">${p.toString()}</code>
+            </div>
+            <div class="key-value">
+                <label>Prime q:</label>
+                <code id="display-q">${q.toString()}</code>
+            </div>
+            <div class="key-value">
+                <label>φ(n) = (p-1)(q-1):</label>
+                <code id="display-phi">${phi.toString()}</code>
+            </div>
+            <div class="math-explanation">
+                <p><strong>Key Relationship:</strong></p>
+                <p>e × d ≡ 1 (mod φ(n))</p>
+                <p>Verification: (e × d) mod φ(n) = ${((e * d) % phi).toString()}</p>
+            </div>
+        </div>
     </div>
     `;
 
@@ -289,45 +289,45 @@ function displayEncryptionResults(originalMessage, messageInt, ciphertext, durat
 
     resultsDiv.innerHTML = `
     <div class="crypto-results">
-    <h3>✓ Encryption Complete (${duration}ms)</h3>
+        <h3>✓ Encryption Complete (${duration}ms)</h3>
 
-    <div class="result-section">
-    <h4>Original Message</h4>
-    <code class="message-display">${escapeHtml(originalMessage)}</code>
-    </div>
+        <div class="result-section">
+            <h4>Original Message</h4>
+            <code class="message-display">${escapeHtml(originalMessage)}</code>
+        </div>
 
-    <div class="result-section">
-    <h4>Numeric Representation</h4>
-    <p>Message converted to number (base-256 encoding):</p>
-    <code id="message-int">${messageInt.toString()}</code>
-    <button class="copy-btn" data-copy="message-int">Copy</button>
-    </div>
+        <div class="result-section">
+            <h4>Numeric Representation</h4>
+            <p>Message converted to number (base-256 encoding):</p>
+            <code id="message-int">${messageInt.toString()}</code>
+            <button class="copy-btn" data-copy="message-int">Copy</button>
+        </div>
 
-    <div class="result-section">
-    <h4>Ciphertext</h4>
-    <p>Encrypted value: c = m<sup>e</sup> mod n</p>
-    <code id="ciphertext">${ciphertext.toString()}</code>
-    <button class="copy-btn" data-copy="ciphertext">Copy</button>
-    </div>
+        <div class="result-section">
+            <h4>Ciphertext</h4>
+            <p>Encrypted value: c = m<sup>e</sup> mod n</p>
+            <code id="ciphertext">${ciphertext.toString()}</code>
+            <button class="copy-btn" data-copy="ciphertext">Copy</button>
+        </div>
 
-    <div class="math-breakdown">
-    <h4>Mathematical Breakdown</h4>
-    <div class="calculation">
-    <p><strong>Operation:</strong> c = m<sup>e</sup> mod n</p>
-    <p><strong>Values:</strong></p>
-    <ul>
-    <li>m (message) = ${messageInt.toString()}</li>
-    <li>e (public exponent) = ${e.toString()}</li>
-    <li>n (modulus) = ${n.toString().substring(0, 50)}...</li>
-    </ul>
-    <p><strong>Result:</strong> c = ${ciphertext.toString()}</p>
-    </div>
-    </div>
+        <div class="math-breakdown">
+            <h4>Mathematical Breakdown</h4>
+            <div class="calculation">
+                <p><strong>Operation:</strong> c = m<sup>e</sup> mod n</p>
+                <p><strong>Values:</strong></p>
+                <ul>
+                    <li>m (message) = ${messageInt.toString()}</li>
+                    <li>e (public exponent) = ${e.toString()}</li>
+                    <li>n (modulus) = ${n.toString().substring(0, 50)}...</li>
+                </ul>
+                <p><strong>Result:</strong> c = ${ciphertext.toString()}</p>
+            </div>
+        </div>
 
-    <div class="security-note">
-    <p><strong>⚠️ Security Note:</strong> This is "textbook RSA" without padding.</p>
-    <p>In production, always use OAEP padding to prevent attacks.</p>
-    </div>
+        <div class="security-note">
+            <p><strong>⚠️ Security Note:</strong> This is "textbook RSA" without padding.</p>
+            <p>In production, always use OAEP padding to prevent attacks.</p>
+        </div>
     </div>
     `;
 
@@ -392,37 +392,37 @@ function displayDecryptionResults(ciphertext, plaintextInt, plaintextStr, durati
 
     resultsDiv.innerHTML = `
     <div class="crypto-results">
-    <h3>✓ Decryption Complete (${duration}ms)</h3>
+        <h3>✓ Decryption Complete (${duration}ms)</h3>
 
-    <div class="result-section">
-    <h4>Ciphertext</h4>
-    <code>${ciphertext.toString()}</code>
-    </div>
+        <div class="result-section">
+            <h4>Ciphertext</h4>
+            <code>${ciphertext.toString()}</code>
+        </div>
 
-    <div class="result-section">
-    <h4>Decrypted Number</h4>
-    <code>${plaintextInt.toString()}</code>
-    </div>
+        <div class="result-section">
+            <h4>Decrypted Number</h4>
+            <code>${plaintextInt.toString()}</code>
+        </div>
 
-    <div class="result-section success">
-    <h4>Recovered Message</h4>
-    <code class="message-display">${escapeHtml(plaintextStr)}</code>
-    </div>
+        <div class="result-section success">
+            <h4>Recovered Message</h4>
+            <code class="message-display">${escapeHtml(plaintextStr)}</code>
+        </div>
 
-    <div class="math-breakdown">
-    <h4>Mathematical Breakdown</h4>
-    <div class="calculation">
-    <p><strong>Operation:</strong> m = c<sup>d</sup> mod n</p>
-    <p><strong>Values:</strong></p>
-    <ul>
-    <li>c (ciphertext) = ${ciphertext.toString()}</li>
-    <li>d (private exponent) = ${d.toString().substring(0, 50)}...</li>
-    <li>n (modulus) = ${n.toString().substring(0, 50)}...</li>
-    </ul>
-    <p><strong>Result:</strong> m = ${plaintextInt.toString()}</p>
-    <p><strong>Decoded:</strong> "${escapeHtml(plaintextStr)}"</p>
-    </div>
-    </div>
+        <div class="math-breakdown">
+            <h4>Mathematical Breakdown</h4>
+            <div class="calculation">
+                <p><strong>Operation:</strong> m = c<sup>d</sup> mod n</p>
+                <p><strong>Values:</strong></p>
+                <ul>
+                    <li>c (ciphertext) = ${ciphertext.toString()}</li>
+                    <li>d (private exponent) = ${d.toString().substring(0, 50)}...</li>
+                    <li>n (modulus) = ${n.toString().substring(0, 50)}...</li>
+                </ul>
+                <p><strong>Result:</strong> m = ${plaintextInt.toString()}</p>
+                <p><strong>Decoded:</strong> "${escapeHtml(plaintextStr)}"</p>
+            </div>
+        </div>
     </div>
     `;
 }
@@ -489,16 +489,16 @@ function displayWelcomeMessage() {
     if (welcomeDiv) {
         welcomeDiv.innerHTML = `
         <div class="welcome-content">
-        <h2>Welcome to the RSA Interactive Tool</h2>
-        <p>This tool demonstrates the RSA cryptosystem in action. Follow these steps:</p>
-        <ol>
-        <li><strong>Generate Keys:</strong> Create an RSA key pair (public and private)</li>
-        <li><strong>Encrypt:</strong> Enter a message and encrypt it with the public key</li>
-        <li><strong>Decrypt:</strong> Use the private key to recover the original message</li>
-        </ol>
-        <div class="educational-note">
-        <p><strong>📚 Educational Purpose:</strong> This tool is designed for learning. It implements "textbook RSA" without padding schemes. Real-world RSA uses OAEP padding and proper key management in Hardware Security Modules (HSMs).</p>
-        </div>
+            <h2>Welcome to the RSA Interactive Tool</h2>
+            <p>This tool demonstrates the RSA cryptosystem in action. Follow these steps:</p>
+            <ol>
+                <li><strong>Generate Keys:</strong> Create an RSA key pair (public and private)</li>
+                <li><strong>Encrypt:</strong> Enter a message and encrypt it with the public key</li>
+                <li><strong>Decrypt:</strong> Use the private key to recover the original message</li>
+            </ol>
+            <div class="educational-note">
+                <p><strong>📚 Educational Purpose:</strong> This tool is designed for learning. It implements "textbook RSA" without padding schemes. Real-world RSA uses OAEP padding and proper key management in Hardware Security Modules (HSMs).</p>
+            </div>
         </div>
         `;
     }
