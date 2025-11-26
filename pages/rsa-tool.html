@@ -11,6 +11,11 @@
 
     <!-- Inline styles specific to this tool -->
     <style>
+        /* Lists */
+        ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
         /* Tool-specific styling */
         .rsa-tool-container {
             max-width: 1200px;
@@ -133,7 +138,8 @@
             margin-bottom: 0.5rem;
         }
 
-        .key-value code {
+        .key-value code,
+        .result-section code {
             display: block;
             font-family: 'Courier New', monospace;
             font-size: 0.85rem;
@@ -175,7 +181,7 @@
         }
 
         .security-note {
-            background: #e3f2fd;
+            background: #90b0ca;
             border-left: 4px solid #2196f3;
             padding: 1rem;
             margin: 1rem 0;
@@ -189,10 +195,13 @@
             margin-top: 1rem;
         }
 
-        .math-breakdown code {
-            background: white;
-            padding: 0.25rem 0.5rem;
+        .calculation {
+            background: #f3f5ff;
+            padding: 1.5rem;
             border-radius: 3px;
+            word-break: break-all;
+            display: inline-block;
+            max-width: 100%;
         }
 
         .result-section {
