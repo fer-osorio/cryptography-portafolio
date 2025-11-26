@@ -28,6 +28,10 @@
             gap: 1rem;
             margin-bottom: 2rem;
             border-bottom: 2px solid var(--color-border);
+            overflow-x: auto;           /* Enable horizontal scrolling */
+            overflow-y: hidden;         /* Prevent vertical scroll */
+            white-space: nowrap;        /* Prevent buttons from wrapping */
+            -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
         }
 
         .tab-button {
@@ -40,6 +44,7 @@
             font-weight: 600;
             color: var(--color-text-light);
             transition: all 0.3s ease;
+            flex-shrink: 0;  /* Prevent buttons from shrinking to fit */
         }
 
         .tab-button:hover {
