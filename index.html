@@ -13,7 +13,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
 
-    <title>Cryptography Portfolio</title>
+    <!-- SEO & METADATA -->
+    <title>Mathematical Foundations - Cryptography, Algorithms & Theory</title>
+    <meta name="description" content="Interactive demonstrations of mathematical concepts in cryptography, algorithms, and computer science. Built by a mathematician and cryptographer.">
+    <meta name="keywords" content="mathematics, cryptography, algorithms, RSA, number theory, computer science, interactive learning">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,11 +27,11 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <h1 class="logo">Fernando Osorio</h1>
+                <h1 class="logo">Mathematical Foundations</h1>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#cryptography">Cryptography</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#tools">Tools</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -39,15 +43,80 @@
         <!-- HERO SECTION: Introductory content -->
         <section class="hero">
             <div class="hero-content">
-                <h1>Welcome to my Cryptography Portfolio</h1>
-                <p>Exploring the intersection of mathematics, cryptography, and web security</p>
-                <p class="subtitle">This site showcases cryptographic projects and interactive demonstrations</p>
+                <h1>Mathematical Foundations</h1>
+                <p>From theory to implementation: exploring mathematics, cryptography, and computational complexity</p>
+                <p class="subtitle">Interactive demonstrations bridging rigorous mathematical theory with practical implementations</p>
             </div>
         </section>
 
-        <!-- PORTFOLIO SECTION: Your GitHub projects -->
+        <!-- TOOLS SECTION: Interactive cryptographic demonstrations -->
+        <section id="cryptography" class="tools">
+            <h2>Cryptography & Security</h2>
+            <p class="section-intro">
+                Interactive demonstrations of cryptographic algorithms and security concepts,
+                showing how mathematical theory translates to secure systems.
+            </p>
+            <div class="tools-grid">
+                <!-- TOOL CARD 1: RSA Demo -->
+                <article class="tool-card">
+                    <h3>RSA Key Generation & Encryption</h3>
+                    <p>
+                        Complete implementation of the RSA cryptosystem with interactive key generation,
+                        encryption, and decryption. Demonstrates prime number generation, modular arithmetic, and includes security analysis of textbook RSA vulnerabilities.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Number Theory</span>
+                        <span class="tag">RSA</span>
+                    </div>
+                    <button class="btn-primary" onclick="navigateToTool('pages/rsa-tool.html')">
+                        Open Tool
+                    </button>
+                </article>
+
+                <!-- TOOL CARD 2: Hash Functions (Future) -->
+                <article class="tool-card">
+                    <h3>Hash Function Visualizer</h3>
+                    <p>
+                        Interactive visualization of cryptographic hash functions (SHA-256, SHA-512, SHA-3). Observe the avalanche effect, collision resistance, and understand
+                        one-way function properties.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Hash Functions</span>
+                    </div>
+                    <button class="btn-primary" disabled>
+                        Coming Soon
+                    </button>
+                </article>
+
+                <!-- TOOL CARD 3: Symmetric Encryption (Future) -->
+                <article class="tool-card">
+                    <h3>Elliptic Curve Explorer</h3>
+                    <p class="project-description">
+                        Visual exploration of elliptic curves over finite fields.
+                        Understand point addition, scalar multiplication, and the mathematical
+                        foundations of modern elliptic curve cryptography (ECC).
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Elliptic Curves</span>
+                        <span class="tag">Abstract Algebra</span>
+                    </div>
+                    <button class="btn-primary" disabled>
+                        Coming Soon
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION: GitHub projects -->
         <section id="portfolio" class="portfolio">
-            <h2>Research & Projects</h2>
+            <h2>Research & Development Projects</h2>
+            <p class="section-intro">
+                Mathematical and cryptographic implementations in C/C++, available on GitHub.
+            </p>
+
             <div class="projects-grid">
                 <!-- PROJECT CARD 1 -->
                 <!-- Each card is a <article> (semantic HTML) containing project info -->
@@ -103,64 +172,25 @@
             </div>
         </section>
 
-        <!-- TOOLS SECTION: Interactive cryptographic demonstrations -->
-        <section id="tools" class="tools">
-            <h2>Interactive Cryptographic Tools</h2>
-            <p class="section-intro">
-                These tools demonstrate cryptographic concepts in action.
-                Your knowledge applied in the browser.
-            </p>
-            <div class="tools-grid">
-                <!-- TOOL CARD 1: RSA Demo -->
-                <article class="tool-card">
-                    <h3>RSA Key Generation & Encryption</h3>
-                    <p>
-                        Generate RSA (Rivest-Shamir-Adleman algorithm) key pairs and perform encryption/decryption operations.
-                        Understand how public key cryptography works interactively.
-                    </p>
-                    <button class="btn-primary" onclick="navigateToTool('pages/rsa-tool.html')">
-                        Open Tool
-                    </button>
-                </article>
-
-                <!-- TOOL CARD 2: Hash Functions (Future) -->
-                <article class="tool-card">
-                    <h3>Hash Function Visualizer</h3>
-                    <p>
-                        See how different hash functions process input and observe
-                        the avalanche effect property.
-                    </p>
-                    <button class="btn-primary" disabled>
-                        Coming Soon
-                    </button>
-                </article>
-
-                <!-- TOOL CARD 3: Symmetric Encryption (Future) -->
-                <article class="tool-card">
-                    <h3>Symmetric Encryption Explorer</h3>
-                    <p>
-                        Encrypt and decrypt messages using symmetric algorithms
-                        and observe key scheduling.
-                    </p>
-                    <button class="btn-primary" disabled>
-                        Coming Soon
-                    </button>
-                </article>
-            </div>
-        </section>
-
         <!-- ABOUT SECTION: Your background -->
         <section id="about" class="about">
             <h2>About</h2>
             <div class="about-content">
                 <p>
                     I am a mathematician and computer scientist specializing in cryptography.
-                    This portfolio demonstrates how cryptographic theory translates into practice,
-                    from research-grade C/C++ implementations to interactive web-based demonstrations.
+                    This portfolio demonstrates how mathematical theory translates into practice,
+                    from foundational algorithms to secure systems.
                 </p>
                 <p>
-                    My work focuses on post-quantum cryptography, number theory, and algorithmic optimization.
+                    My work spans <strong>cryptography</strong>, <strong>number theory</strong>,
+                    <strong>algorithms</strong>, and <strong>computational complexity</strong>.
+                    Each project here bridges rigorous mathematical foundations with practical
+                    implementations you can interact with.
                 </p>
+                <p>
+                    Through interactive tools and visualizations, I aim to make complex
+                    mathematical concepts accessible and demonstrate their real-world applications
+                    in computer science and security.
             </div>
         </section>
 
@@ -188,10 +218,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Cryptography Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Mathematical Foundations. All rights reserved.</p>
         <p class="security-note">
-            This site implements security best practices.
-            <a href="#security">Learn about web security here.</a>
+            Interactive demonstrations for educational purposes.
+            <a href="#about">Learn more about this project.</a>
         </p>
     </footer>
 
